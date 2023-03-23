@@ -1,9 +1,16 @@
 import React from "react"
-import { Button, Box } from "@mui/material"
-import DrawerAppBar from "../components"
+import GroupGrid from "../components/groupGrid"
+
+import Header from "../components/header"
 
 const IndexPage = () => {
-  return <DrawerAppBar />
+  return (
+    <>
+      <Header />
+
+      <GroupGrid />
+    </>
+  )
 }
 
 export default IndexPage
