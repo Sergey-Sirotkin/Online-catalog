@@ -7,9 +7,16 @@ import Header from "../components/header"
 import { Toolbar, Box } from "@mui/material"
 
 import "../styles/reset.css"
+import Footer from "../components/footer"
 
 const IndexPage = ({ data }) => {
-  const groups = [data.groupA, data.groupB, data.groupC, data.groupA1, data.groupA2]
+  const groups = [
+    data.groupA,
+    data.groupB,
+    data.groupC,
+    data.groupA1,
+    data.groupA2,
+  ]
 
   return (
     <>
@@ -32,6 +39,7 @@ const IndexPage = ({ data }) => {
           })}
         </Box>
       </Box>
+      <Footer />
     </>
   )
 }
