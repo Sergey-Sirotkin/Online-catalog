@@ -4,9 +4,12 @@ import {
   List,
   ListItem,
   ListItemText,
+  Stack,
   Typography,
+  ListItemButton,
 } from "@mui/material"
-import { ListItemButton } from "gatsby-theme-material-ui"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
+
 import React from "react"
 
 const HeaderDrawer = ({ handleDrawerToggle, navItems }) => {
@@ -16,15 +19,19 @@ const HeaderDrawer = ({ handleDrawerToggle, navItems }) => {
         Слобожанские
       </Typography>
 
-      <Divider />
-
       <List>
+        <Divider />
         {navItems.map(({ label, id }) => (
-          <ListItem key={id} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={label} />
-            </ListItemButton>
-          </ListItem>
+          <Stack key={id}>
+            <AnchorLink to={`#${id}`}>
+              <ListItem disablePadding>
+                <ListItemButton sx={{ textAlign: "center" }}>
+                  <ListItemText primary={label} />
+                </ListItemButton>
+              </ListItem>
+              <Divider />
+            </AnchorLink>
+          </Stack>
         ))}
       </List>
     </Box>

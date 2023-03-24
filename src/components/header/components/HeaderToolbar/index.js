@@ -19,7 +19,7 @@ const HeaderToolbar = ({ handleDrawerToggle, navItems }) => {
           aria-label="open drawer"
           edge="start"
           onClick={handleDrawerToggle}
-          sx={{ mr: 2, display: { sm: "none" } }}
+          sx={{ mr: 2, display: { md: "none" } }}
         >
           <MenuIcon />
         </IconButton>
@@ -27,15 +27,15 @@ const HeaderToolbar = ({ handleDrawerToggle, navItems }) => {
         <Typography
           variant="h6"
           component="div"
-          sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+          sx={{ flexGrow: 1 }}
         >
-          Слобожанские
+          Слобожанские - каталог
         </Typography>
 
         <Stack
           direction="row"
           gap={1}
-          sx={{ display: { xs: "none", sm: "flex" } }}
+          sx={{ display: { xs: "none", md: "flex" } }}
         >
           {navItems.map(({ label, id }) => (
             <AnchorLink key={id} to={`#${id}`}>
