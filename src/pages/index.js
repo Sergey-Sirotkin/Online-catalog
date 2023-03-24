@@ -55,7 +55,6 @@ export const query = graphql`
             group
             companion {
               companionItem
-              companionLink
             }
             availability
           }
@@ -79,7 +78,6 @@ export const query = graphql`
             group
             companion {
               companionItem
-              companionLink
             }
             availability
           }

@@ -5,7 +5,7 @@ import { AnchorLink } from "gatsby-plugin-anchor-links"
 const ProductFeatures = ({ features }) => {
   const { color, type, group, availability, companion } = features[0]
 
-  const { companionItem, companionLink } = companion[0]
+  const { companionItem } = companion[0]
 
   return (
     <>
@@ -39,7 +39,7 @@ const ProductFeatures = ({ features }) => {
             Компаньйон:
           </Typography>
 
-          <AnchorLink to={`#id${companionLink}`}>
+          <AnchorLink to={`#id${companionItem}`}>
             <Link component='div' underline="hover">
               <Typography fontSize="18px">{companionItem}</Typography>
             </Link>
