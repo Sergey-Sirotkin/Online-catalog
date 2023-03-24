@@ -27,8 +27,6 @@ const GroupGrid = ({ productCards, groupTitle, groupName }) => {
         {productCards.map(({ image, itemNumber, features }) => {
           const productImage = getImage(image)
 
-          const validId = itemNumber.replace(/-/g, "").toString()
-
           return (
             <Grid
               id={`id${itemNumber}`}
