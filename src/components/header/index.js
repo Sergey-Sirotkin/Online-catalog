@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react"
 
-import { Box, CssBaseline, Drawer } from "@mui/material"
+import { Box, Drawer } from "@mui/material"
 
 import HeaderDrawer from "../headerDrawer"
 import HeaderToolbar from "./components/HeaderToolbar"
@@ -13,15 +13,19 @@ const Header = props => {
     setMobileOpen(prevState => !prevState)
   }, [setMobileOpen])
 
-  const navItems = ["Група А", "Група В", "Група С", "Акція 1", "Акція 2"]
+  const navItems = [
+    { id: "A", label: "Група - А" },
+    { id: "B", label: "Група - В" },
+    { id: "C", label: "Група - С" },
+    { id: "A1", label: "Акція - 1" },
+    { id: "A2", label: "Акція - 2" },
+  ]
 
   const container =
     window !== undefined ? () => window().document.body : undefined
 
   return (
     <div>
-      <CssBaseline />
-
       <HeaderToolbar
         handleDrawerToggle={handleDrawerToggle}
         navItems={navItems}

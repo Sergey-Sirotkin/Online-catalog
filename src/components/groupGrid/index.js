@@ -1,117 +1,54 @@
 import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { graphql, useStaticQuery } from "gatsby"
+
 import {
-  Box,
   Divider,
   Card,
   CardContent,
   Grid,
-  Toolbar,
   Typography,
   Stack,
+  Chip,
 } from "@mui/material"
+import ProductFeatures from "./components"
 
-const GroupGrid = () => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        mdx(frontmatter: { group: { eq: "A" } }) {
-          frontmatter {
-            productCards {
-              image {
-                childImageSharp {
-                  gatsbyImageData
-                }
-              }
-              itemNumber
-              features {
-                color
-                type
-                group
-                companion {
-                  companionItem
-                  companionLink
-                }
-                availability
-              }
-            }
-          }
-        }
-      }
-    `
-  )
-
-  const products = data.mdx.frontmatter.productCards
-
+const GroupGrid = ({ productCards, groupTitle, groupName }) => {
   return (
-    <Box sx={{ display: "flex" }}>
-      <Box component="main" sx={{ p: 4 }}>
-        <Toolbar />
+    <>
+      <Stack id={groupName} mb={5} mt={6} alignItems="center">
+        <Chip
+          sx={{ fontSize: "45px", padding: "30px", borderRadius: "30px" }}
+          label={groupTitle}
+          color="info"
+        />
+      </Stack>
 
-        <Grid container spacing={2}>
-          {products.map(({ image, itemNumber, features }) => {
-            const { color, type, group, companion, availability } = features[0]
+      <Grid container spacing={2}>
+        {productCards.map(({ image, itemNumber, features }) => {
+          const productImage = getImage(image)
 
-            const { companionItem, companionLink } = companion[0]
-
-            const productImage = getImage(image)
-
-            return (
-              <Grid key={itemNumber} item xs={4}>
-                <Card>
+          return (
+            <Grid id={itemNumber} key={itemNumber} item sm={12} md={6} lg={4}>
+              <Card sx={{ height: "100%" }}>
+                <Stack alignItems="center">
                   <GatsbyImage image={productImage} alt={itemNumber} />
-                  <CardContent>
-                    <Typography fontWeight="bold" gutterBottom variant="h5">
-                      {itemNumber}
-                    </Typography>
+                </Stack>
 
-                    <Divider sx={{ mb: 1 }} />
+                <CardContent>
+                  <Typography fontWeight="bold" gutterBottom variant="h5">
+                    Артикул: {itemNumber}
+                  </Typography>
 
-                    <Stack direction="row" gap={1} alignItems="center">
-                      <Typography fontSize="20px" fontWeight="bold">
-                        Колір:
-                      </Typography>
-                      <Typography fontSize="20px">{color}</Typography>
-                    </Stack>
+                  <Divider sx={{ mb: 1 }} />
 
-                    <Stack direction="row" gap={1} alignItems="center">
-                      <Typography fontSize="20px" fontWeight="bold">
-                        Тип малюнка:
-                      </Typography>
-                      <Typography fontSize="20px">{type}</Typography>
-                    </Stack>
-
-                    <Stack direction="row" gap={1} alignItems="center">
-                      <Typography fontSize="20px" fontWeight="bold">
-                        Група:
-                      </Typography>
-                      <Typography fontSize="20px">{group}</Typography>
-                    </Stack>
-
-                    <Stack direction="row" gap={1} alignItems="center">
-                      <Typography fontSize="20px" fontWeight="bold">
-                        Компаньйон:
-                      </Typography>
-                      <Typography fontSize="20px">{companionItem}</Typography>
-                    </Stack>
-
-                    <Divider sx={{ mb: 2, mt: 1 }} />
-
-                    <Stack direction="row" gap={1} alignItems="center">
-                      <Typography fontSize="20px" fontWeight="bold">
-                        Наявність на складі:
-                      </Typography>
-                      <Typography fontSize="20px">{availability}</Typography>
-                    </Stack>
-                  </CardContent>
-                </Card>
-              </Grid>
-            )
-          })}
-        </Grid>
-      </Box>
-    </Box>
+                  <ProductFeatures features={features} />
+                </CardContent>
+              </Card>
+            </Grid>
+          )
+        })}
+      </Grid>
+    </>
   )
 }
 
