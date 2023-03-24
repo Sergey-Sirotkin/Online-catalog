@@ -1,16 +1,4 @@
-:root {
-  --border-radius: 4px;
-  --color-text: rgb(204, 214, 246);
-  --color-bg: #0a192f;
-  --font-sans: "Calibre", -apple-system, system-ui, sans-serif;
-  --font-mono: "Fira Mono", monospace;
-  --line-height-loose: 1.75;
-  --line-height-normal: 1.5;
-  --line-height-dense: 1.1;
-  --size-content: 54rem;
-  --size-gutter: 32px;
-  --size-gap: 64px;
-}
+
 html {
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
@@ -20,10 +8,7 @@ html {
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  color: var(--color-text);
-  background-color: var(--color-bg);
   font-family: sans-serif;
-  font-family: var(--font-sans);
   font-weight: normal;
   margin: 0;
   word-wrap: break-word;

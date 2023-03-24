@@ -6,7 +6,7 @@ import Header from "../components/header"
 
 import { Toolbar, Box } from "@mui/material"
 
-import '../styles/reset.css'
+import "../styles/reset.css"
 
 const IndexPage = ({ data }) => {
   const groups = [data.groupA, data.groupB]
@@ -16,7 +16,7 @@ const IndexPage = ({ data }) => {
       <Header />
 
       <Box sx={{ display: "flex" }}>
-        <Box component="main" sx={{ p: 4 }}>
+        <Box component="main" sx={{ p: { xs: 0, sm: 2, md: 3, xl: 4 } }}>
           <Toolbar />
           {groups.map(group => {
             const { groupName, productCards, groupTitle } = group.frontmatter

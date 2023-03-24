@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import {
@@ -9,21 +9,45 @@ import {
   Typography,
   Stack,
   Chip,
+  Dialog,
 } from "@mui/material"
+
 import ProductFeatures from "./components"
+import { Button } from "gatsby-material-ui-components"
 
 const GroupGrid = ({ productCards, groupTitle, groupName }) => {
+  const [lightboxImage, setLightboxImage] = useState(null)
+
+  const handleOpen = ({ productImage, itemNumber }) => {
+    setLightboxImage({ productImage, itemNumber })
+  }
+
+  const handleClose = () => {
+    setLightboxImage(null)
+  }
+
   return (
     <>
-      <Stack id={groupName} mb={5} mt={6} alignItems="center">
+      <Stack
+        id={groupName}
+        alignItems="center"
+        sx={{
+          mb: 5,
+          mt: 4,
+        }}
+      >
         <Chip
-          sx={{ fontSize: "45px", padding: "30px", borderRadius: "30px" }}
+          sx={{
+            fontSize: { xs: "25px", md: "45px" },
+            padding: "35px",
+            borderRadius: "30px",
+          }}
           label={groupTitle}
           color="info"
         />
       </Stack>
 
-      <Grid container spacing={2}>
+      <Grid container spacing={3}>
         {productCards.map(({ image, itemNumber, features }) => {
           const productImage = getImage(image)
 
@@ -35,14 +59,32 @@ const GroupGrid = ({ productCards, groupTitle, groupName }) => {
               sm={12}
               md={6}
               lg={4}
+              xl={3}
             >
               <Card sx={{ height: "100%" }}>
-                <Stack alignItems="center">
+                <Stack
+                  alignItems="center"
+                  sx={{
+                    cursor: "pointer",
+                    transition: "opacity 0.3s",
+                    "&:hover": {
+                      opacity: 0.8,
+                    },
+                  }}
+                  onClick={() => handleOpen({ productImage, itemNumber })}
+                >
                   <GatsbyImage image={productImage} alt={itemNumber} />
                 </Stack>
 
-                <CardContent>
-                  <Typography fontWeight="bold" gutterBottom variant="h5">
+                <CardContent
+                  sx={{
+                    p: { xs: 1, md: 2 },
+                    "&:last-child": {
+                      paddingBottom: 2,
+                    },
+                  }}
+                >
+                  <Typography fontWeight="bold" gutterBottom variant="h6">
                     Артикул: {itemNumber}
                   </Typography>
 
@@ -55,6 +97,45 @@ const GroupGrid = ({ productCards, groupTitle, groupName }) => {
           )
         })}
       </Grid>
+
+      {lightboxImage && (
+        <Dialog
+          open={Boolean(lightboxImage)}
+          onClose={handleClose}
+          maxWidth="xl"
+          PaperProps={{
+            sx: {
+              margin: "5px",
+            },
+          }}
+        >
+          <GatsbyImage
+            image={lightboxImage.productImage}
+            alt={lightboxImage.itemNumber}
+          />
+
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            sx={{ height: "60px", pr: 2, pl: 2 }}
+          >
+            <Typography
+              sx={{ fontSize: { xs: "h7", sm: "h6" } }}
+              fontWeight="bold"
+            >
+              Артикул: {lightboxImage.itemNumber}
+            </Typography>
+            <Button
+              sx={{ maxHeight: "40px" }}
+              variant="contained"
+              onClick={handleClose}
+            >
+              Закрити
+            </Button>
+          </Stack>
+        </Dialog>
+      )}
     </>
   )
 }

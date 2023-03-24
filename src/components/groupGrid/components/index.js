@@ -1,5 +1,5 @@
 import React from "react"
-import { Divider, Typography, Stack, Box } from "@mui/material"
+import { Divider, Typography, Stack, Box, Link } from "@mui/material"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 const ProductFeatures = ({ features }) => {
@@ -10,37 +10,39 @@ const ProductFeatures = ({ features }) => {
   return (
     <>
       <Stack direction="row" gap={1} alignItems="center">
-        <Typography fontSize="20px" fontWeight="bold">
+        <Typography fontSize="18px" fontWeight="bold">
           Колір:
         </Typography>
 
-        <Typography fontSize="20px">{color}</Typography>
+        <Typography fontSize="18px">{color}</Typography>
       </Stack>
 
       <Stack direction="row" gap={1} alignItems="center">
-        <Typography fontSize="20px" fontWeight="bold">
+        <Typography fontSize="18px" fontWeight="bold">
           Тип малюнка:
         </Typography>
 
-        <Typography fontSize="20px">{type}</Typography>
+        <Typography fontSize="18px">{type}</Typography>
       </Stack>
 
       <Stack direction="row" gap={1} alignItems="center">
-        <Typography fontSize="20px" fontWeight="bold">
+        <Typography fontSize="18px" fontWeight="bold">
           Група:
         </Typography>
 
-        <Typography fontSize="20px">{group}</Typography>
+        <Typography fontSize="18px">{group}</Typography>
       </Stack>
 
       {companionItem ? (
         <Stack direction="row" gap={1} alignItems="center">
-          <Typography fontSize="20px" fontWeight="bold">
+          <Typography fontSize="18px" fontWeight="bold">
             Компаньйон:
           </Typography>
 
           <AnchorLink to={`#id${companionLink}`}>
-            <Typography fontSize="20px">{companionItem}</Typography>
+            <Link component='div' underline="hover">
+              <Typography fontSize="18px">{companionItem}</Typography>
+            </Link>
           </AnchorLink>
         </Stack>
       ) : (
@@ -55,11 +57,11 @@ const ProductFeatures = ({ features }) => {
         alignItems="center"
         justifyContent="center"
       >
-        <Typography fontSize="20px" fontWeight="bold">
+        <Typography fontSize="18px" fontWeight="bold">
           Наявність на складі:
         </Typography>
 
-        <Typography fontSize="20px">{availability} рул.</Typography>
+        <Typography fontSize="18px">{availability} рул.</Typography>
       </Stack>
     </>
   )
