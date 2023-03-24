@@ -9,7 +9,7 @@ import { Toolbar, Box } from "@mui/material"
 import "../styles/reset.css"
 
 const IndexPage = ({ data }) => {
-  const groups = [data.groupA, data.groupB, data.groupC, data.groupA1]
+  const groups = [data.groupA, data.groupB, data.groupC, data.groupA1, data.groupA2]
 
   return (
     <>
@@ -108,6 +108,29 @@ export const query = graphql`
       }
     }
     groupA1: mdx(frontmatter: { groupName: { eq: "A1" } }) {
+      frontmatter {
+        groupName
+        groupTitle
+        productCards {
+          image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+          itemNumber
+          features {
+            color
+            type
+            group
+            companion {
+              companionItem
+            }
+            availability
+          }
+        }
+      }
+    }
+    groupA2: mdx(frontmatter: { groupName: { eq: "A2" } }) {
       frontmatter {
         groupName
         groupTitle
