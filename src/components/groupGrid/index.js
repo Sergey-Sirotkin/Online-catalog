@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useCallback, useState } from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import {
@@ -17,6 +17,21 @@ import { Button } from "gatsby-material-ui-components"
 
 const GroupGrid = ({ productCards, groupTitle, groupName }) => {
   const [lightboxImage, setLightboxImage] = useState(null)
+
+  const [opacity, setOpacity] = useState(1)
+  const [border, setBorder] = useState(null)
+  const [currentCompanion, setCurrentCompanion] = useState(null)
+
+  const handleOpacityChange = useCallback(companionItem => {
+    setOpacity(0.5)
+    setBorder("4px solid #1976d2")
+    setCurrentCompanion(companionItem)
+
+    setTimeout(() => {
+      setOpacity(1)
+      setBorder(null)
+    }, 2000)
+  }, [])
 
   const handleOpen = ({ productImage, itemNumber }) => {
     setLightboxImage({ productImage, itemNumber })
@@ -48,7 +63,7 @@ const GroupGrid = ({ productCards, groupTitle, groupName }) => {
       </Stack>
 
       <Grid container spacing={3}>
-        {productCards.map(({ image, itemNumber, features }) => {
+        {productCards.map(({ image, itemNumber, features }, index) => {
           const productImage = getImage(image)
 
           return (
@@ -65,8 +80,10 @@ const GroupGrid = ({ productCards, groupTitle, groupName }) => {
                 <Stack
                   alignItems="center"
                   sx={{
+                    opacity: currentCompanion === itemNumber && opacity,
+                    border: currentCompanion === itemNumber && border,
                     cursor: "pointer",
-                    transition: "opacity 0.3s",
+                    transition: "all 0.3s",
                     "&:hover": {
                       opacity: 0.8,
                     },
@@ -90,7 +107,10 @@ const GroupGrid = ({ productCards, groupTitle, groupName }) => {
 
                   <Divider sx={{ mb: 1 }} />
 
-                  <ProductFeatures features={features} />
+                  <ProductFeatures
+                    features={features}
+                    handleOpacityChange={handleOpacityChange}
+                  />
                 </CardContent>
               </Card>
             </Grid>
