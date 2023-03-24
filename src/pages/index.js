@@ -6,6 +6,8 @@ import Header from "../components/header"
 
 import { Toolbar, Box } from "@mui/material"
 
+import '../styles/reset.css'
+
 const IndexPage = ({ data }) => {
   const groups = [data.groupA, data.groupB]
 

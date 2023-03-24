@@ -27,8 +27,17 @@ const GroupGrid = ({ productCards, groupTitle, groupName }) => {
         {productCards.map(({ image, itemNumber, features }) => {
           const productImage = getImage(image)
 
+          const validId = itemNumber.replace(/-/g, "").toString()
+
           return (
-            <Grid id={itemNumber} key={itemNumber} item sm={12} md={6} lg={4}>
+            <Grid
+              id={`id${itemNumber}`}
+              key={itemNumber}
+              item
+              sm={12}
+              md={6}
+              lg={4}
+            >
               <Card sx={{ height: "100%" }}>
                 <Stack alignItems="center">
                   <GatsbyImage image={productImage} alt={itemNumber} />

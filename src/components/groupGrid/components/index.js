@@ -39,7 +39,7 @@ const ProductFeatures = ({ features }) => {
             Компаньйон:
           </Typography>
 
-          <AnchorLink to={companionLink }>
+          <AnchorLink to={`#id${companionLink}`}>
             <Typography fontSize="20px">{companionItem}</Typography>
           </AnchorLink>
         </Stack>
