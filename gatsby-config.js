@@ -17,7 +17,7 @@ module.exports = {
     title: `Електронний Каталог - Слобожанские`,
     description: `Електронний каталог продукції ТОВ Блок ЛТД, в якому ви можете знайти не лише фото, але й актуальну наявність товару`,
     author: `Блок ЛТД`,
-    siteUrl: `http://www.slobozhanskie.com`,
+    siteUrl: `http://online-catalog.block.kh.ua/`,
   },
   plugins: [
     "gatsby-plugin-image",
