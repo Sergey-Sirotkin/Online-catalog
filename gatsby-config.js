@@ -14,8 +14,10 @@ const gatsbyRequiredRules = path.join(
 
 module.exports = {
   siteMetadata: {
-    title: `Online Catalog`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `Електронний Каталог - Слобожанские`,
+    description: `Електронний каталог продукції ТОВ Блок ЛТД, в якому ви можете знайти не лише фото, але й актуальну наявність товару`,
+    author: `Блок ЛТД`,
+    siteUrl: `http://www.slobozhanskie.com`,
   },
   plugins: [
     "gatsby-plugin-image",
@@ -44,8 +46,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-anchor-links",
       options: {
-        offset: -70
-      }
+        offset: -70,
+      },
     },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
