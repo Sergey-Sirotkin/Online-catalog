@@ -21,7 +21,6 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-image",
-    "gatsby-theme-material-ui",
     "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-plugin-eslint",

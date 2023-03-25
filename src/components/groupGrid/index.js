@@ -2,6 +2,7 @@ import React, { useCallback, useState } from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import {
+  Button,
   Divider,
   Card,
   CardContent,
@@ -13,7 +14,6 @@ import {
 } from "@mui/material"
 
 import ProductFeatures from "./components"
-import { Button } from "gatsby-material-ui-components"
 
 const GroupGrid = ({ productCards, groupTitle, groupName }) => {
   const [lightboxImage, setLightboxImage] = useState(null)
