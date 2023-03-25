@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import GroupGrid from "../components/groupGrid"
 
 import Header from "../components/header"
+import Seo from "../components/seo"
 
 import { Toolbar, Box } from "@mui/material"
 
@@ -43,6 +44,8 @@ const IndexPage = ({ data }) => {
     </>
   )
 }
+
+export const Head = () => <Seo />
 
 export const query = graphql`
   query {
