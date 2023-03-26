@@ -2,13 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 import GroupGrid from "../components/groupGrid"
 
-import Header from "../components/header"
 import Seo from "../components/seo"
-
-import { Toolbar, Box } from "@mui/material"
-
-import "../styles/reset.css"
-import Footer from "../components/footer"
+import Layout from "../components/layout"
 
 const IndexPage = ({ data }) => {
   const groups = [
@@ -20,28 +15,20 @@ const IndexPage = ({ data }) => {
   ]
 
   return (
-    <>
-      <Header />
+    <Layout>
+      {groups.map(group => {
+        const { groupName, productCards, groupTitle } = group.frontmatter
 
-      <Box sx={{ display: "flex" }}>
-        <Box component="main" sx={{ p: { xs: 0, sm: 2, md: 3, xl: 4 } }}>
-          <Toolbar />
-          {groups.map(group => {
-            const { groupName, productCards, groupTitle } = group.frontmatter
-
-            return (
-              <GroupGrid
-                key={groupName}
-                productCards={productCards}
-                groupTitle={groupTitle}
-                groupName={groupName}
-              />
-            )
-          })}
-        </Box>
-      </Box>
-      <Footer />
-    </>
+        return (
+          <GroupGrid
+            key={groupName}
+            productCards={productCards}
+            groupTitle={groupTitle}
+            groupName={groupName}
+          />
+        )
+      })}
+    </Layout>
   )
 }
 

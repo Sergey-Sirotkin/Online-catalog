@@ -1,3 +1,5 @@
+import React from "react"
+
 import {
   AppBar,
   Toolbar,
@@ -6,9 +8,10 @@ import {
   Button,
   IconButton,
 } from "@mui/material"
+
 import MenuIcon from "@mui/icons-material/Menu"
+
 import { AnchorLink } from "gatsby-plugin-anchor-links"
-import React from "react"
 
 const HeaderToolbar = ({ handleDrawerToggle, navItems }) => {
   return (
@@ -24,11 +27,7 @@ const HeaderToolbar = ({ handleDrawerToggle, navItems }) => {
           <MenuIcon />
         </IconButton>
 
-        <Typography
-          variant="h6"
-          component="div"
-          sx={{ flexGrow: 1 }}
-        >
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           Слобожанские - каталог
         </Typography>
 

@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import {
   Button,
@@ -13,7 +12,10 @@ import {
   Dialog,
 } from "@mui/material"
 
-import ProductFeatures from "./components"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
+import ProductFeatures from "./components/ProductFeatures"
+import ProductDialog from "./components/ProductDialog"
 
 const GroupGrid = ({ productCards, groupTitle, groupName }) => {
   const [lightboxImage, setLightboxImage] = useState(null)
@@ -33,13 +35,13 @@ const GroupGrid = ({ productCards, groupTitle, groupName }) => {
     }, 2000)
   }, [])
 
-  const handleOpen = ({ productImage, itemNumber }) => {
+  const handleOpen = useCallback(({ productImage, itemNumber }) => {
     setLightboxImage({ productImage, itemNumber })
-  }
+  }, [])
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setLightboxImage(null)
-  }
+  }, [])
 
   return (
     <>
@@ -63,7 +65,7 @@ const GroupGrid = ({ productCards, groupTitle, groupName }) => {
       </Stack>
 
       <Grid container spacing={3}>
-        {productCards.map(({ image, itemNumber, features }, index) => {
+        {productCards.map(({ image, itemNumber, features }) => {
           const productImage = getImage(image)
 
           return (
@@ -119,42 +121,10 @@ const GroupGrid = ({ productCards, groupTitle, groupName }) => {
       </Grid>
 
       {lightboxImage && (
-        <Dialog
-          open={Boolean(lightboxImage)}
-          onClose={handleClose}
-          maxWidth="xl"
-          PaperProps={{
-            sx: {
-              margin: "5px",
-            },
-          }}
-        >
-          <GatsbyImage
-            image={lightboxImage.productImage}
-            alt={lightboxImage.itemNumber}
-          />
-
-          <Stack
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
-            sx={{ height: "60px", pr: 2, pl: 2 }}
-          >
-            <Typography
-              sx={{ fontSize: { xs: "h7", sm: "h6" } }}
-              fontWeight="bold"
-            >
-              Артикул: {lightboxImage.itemNumber}
-            </Typography>
-            <Button
-              sx={{ maxHeight: "40px" }}
-              variant="contained"
-              onClick={handleClose}
-            >
-              Закрити
-            </Button>
-          </Stack>
-        </Dialog>
+        <ProductDialog
+          lightboxImage={lightboxImage}
+          handleClose={handleClose}
+        />
       )}
     </>
   )

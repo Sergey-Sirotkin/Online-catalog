@@ -1,3 +1,5 @@
+import React from "react"
+
 import {
   Box,
   Divider,
@@ -8,9 +10,8 @@ import {
   Typography,
   ListItemButton,
 } from "@mui/material"
-import { AnchorLink } from "gatsby-plugin-anchor-links"
 
-import React from "react"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 const HeaderDrawer = ({ handleDrawerToggle, navItems }) => {
   return (

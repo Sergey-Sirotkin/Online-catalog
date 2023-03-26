@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react"
 
-import { Box, Drawer } from "@mui/material"
+import { Box, Drawer, Toolbar } from "@mui/material"
 
 import HeaderDrawer from "../headerDrawer"
 import HeaderToolbar from "./components/HeaderToolbar"
@@ -25,7 +25,7 @@ const Header = props => {
     window !== undefined ? () => window().document.body : undefined
 
   return (
-    <div>
+    <>
       <HeaderToolbar
         handleDrawerToggle={handleDrawerToggle}
         navItems={navItems}
@@ -54,7 +54,9 @@ const Header = props => {
           />
         </Drawer>
       </Box>
-    </div>
+
+      <Toolbar />
+    </>
   )
 }
 

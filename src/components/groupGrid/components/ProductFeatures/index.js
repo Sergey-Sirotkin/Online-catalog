@@ -48,7 +48,7 @@ const ProductFeatures = ({ features, handleOpacityChange,  }) => {
             to={`#id${companionItem}`}
             onAnchorLinkClick={handleAnchorLinkClick}
           >
-            <Link component="div" underline="hover">
+            <Link component="div" underline="always">
               <Typography fontSize="18px">{companionItem}</Typography>
             </Link>
           </AnchorLink>
