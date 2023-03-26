@@ -10,20 +10,13 @@ export const Main = styled("main")`
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding: 32px;
 
-  @media (max-width: 1536px) {
-    padding: 32px;
-  }
-
-  @media (max-width: 900px) {
-    padding: 24px;
-  }
-
-  @media (max-width: 600px) {
+  @media (max-width: 1200px) {
     padding: 16px;
   }
 
-  @media (min-width: 0px) {
+  @media (max-width: 768px) {
     padding: 0px;
   }
 `

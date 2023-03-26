@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useCallback, useState } from "react"
 
 import {
   Card,
@@ -18,7 +18,7 @@ const ProductsGrid = ({ productCards, handleOpen }) => {
   const [border, setBorder] = useState(null)
   const [currentCompanion, setCurrentCompanion] = useState(null)
 
-  const handleOpacityChange = companionItem => {
+  const handleOpacityChange = useCallback(companionItem => {
     setOpacity(0.5)
     setBorder("4px solid #1976d2")
     setCurrentCompanion(companionItem)
@@ -27,7 +27,7 @@ const ProductsGrid = ({ productCards, handleOpen }) => {
       setOpacity(1)
       setBorder(null)
     }, 2000)
-  }
+  }, [])
 
   return (
     <Grid container spacing={3}>
