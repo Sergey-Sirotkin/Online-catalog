@@ -6,7 +6,7 @@ import HeaderDrawer from "../headerDrawer"
 import HeaderToolbar from "./components/HeaderToolbar"
 
 const Header = props => {
-  const { window } = props
+  const { window, label, isHomePage } = props
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const handleDrawerToggle = useCallback(() => {
@@ -29,6 +29,8 @@ const Header = props => {
       <HeaderToolbar
         handleDrawerToggle={handleDrawerToggle}
         navItems={navItems}
+        label={label}
+        isHomePage={isHomePage}
       />
 
       <Box component="nav">
@@ -51,6 +53,7 @@ const Header = props => {
           <HeaderDrawer
             handleDrawerToggle={handleDrawerToggle}
             navItems={navItems}
+            isHomePage={isHomePage}
           />
         </Drawer>
       </Box>

@@ -6,10 +6,10 @@ import { Main, Wrapper } from "./styled"
 
 import "../../styles/reset.css"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, label, isHomePage = false }) => {
   return (
     <Wrapper>
-      <Header />
+      <Header label={label} isHomePage={isHomePage} />
 
       <Main>{children}</Main>
 

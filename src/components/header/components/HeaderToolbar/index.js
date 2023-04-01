@@ -12,8 +12,14 @@ import {
 import MenuIcon from "@mui/icons-material/Menu"
 
 import { AnchorLink } from "gatsby-plugin-anchor-links"
+import { Link } from "gatsby"
 
-const HeaderToolbar = ({ handleDrawerToggle, navItems }) => {
+const HeaderToolbar = ({ handleDrawerToggle, navItems, label, isHomePage }) => {
+  const homeNavItems = [
+    { link: "/slobozhanskie", label: "Слобожанские" },
+    { link: "/", label: "Eco Line" },
+    { link: "/", label: "Флізелін" },
+  ]
   return (
     <AppBar component="nav">
       <Toolbar>
@@ -28,7 +34,7 @@ const HeaderToolbar = ({ handleDrawerToggle, navItems }) => {
         </IconButton>
 
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Слобожанские - каталог
+          {label}
         </Typography>
 
         <Stack
@@ -36,11 +42,17 @@ const HeaderToolbar = ({ handleDrawerToggle, navItems }) => {
           gap={1}
           sx={{ display: { xs: "none", md: "flex" } }}
         >
-          {navItems.map(({ label, id }) => (
-            <AnchorLink key={id} to={`#${id}`}>
-              <Button sx={{ color: "#fff" }}>{label}</Button>
-            </AnchorLink>
-          ))}
+          {isHomePage
+            ? homeNavItems.map(({ link, label }, index) => (
+                <Link key={index} to={link}>
+                  <Button sx={{ color: "#fff" }}>{label}</Button>
+                </Link>
+              ))
+            : navItems.map(({ label, id }) => (
+                <AnchorLink key={id} to={`#${id}`}>
+                  <Button sx={{ color: "#fff" }}>{label}</Button>
+                </AnchorLink>
+              ))}
         </Stack>
       </Toolbar>
     </AppBar>
