@@ -9,6 +9,7 @@ import {
   Stack,
   Typography,
   ListItemButton,
+  Button,
 } from "@mui/material"
 
 import { AnchorLink } from "gatsby-plugin-anchor-links"
@@ -17,7 +18,7 @@ import { Link } from "gatsby"
 const HeaderDrawer = ({ handleDrawerToggle, navItems, isHomePage }) => {
   const homeNavItems = [
     { link: "/slobozhanskie", label: "Слобожанские" },
-    { link: "/", label: "Eco Line" },
+    { link: "/ecoline", label: "Eco Line" },
     { link: "/", label: "Флізелін" },
   ]
 
@@ -55,6 +56,12 @@ const HeaderDrawer = ({ handleDrawerToggle, navItems, isHomePage }) => {
               </Stack>
             ))}
       </List>
+
+      {!isHomePage && (
+        <Button sx={{ mt: 3 }} color="info" variant="contained">
+          <Link to="/">Головна</Link>
+        </Button>
+      )}
     </Box>
   )
 }

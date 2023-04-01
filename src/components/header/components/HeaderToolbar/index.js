@@ -14,30 +14,42 @@ import MenuIcon from "@mui/icons-material/Menu"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { Link } from "gatsby"
 
-const HeaderToolbar = ({ handleDrawerToggle, navItems, label, isHomePage }) => {
+const HeaderToolbar = ({
+  handleDrawerToggle,
+  navItems,
+  label,
+  isHomePage,
+  isEcoLine,
+}) => {
   const homeNavItems = [
     { link: "/slobozhanskie", label: "Слобожанские" },
-    { link: "/", label: "Eco Line" },
+    { link: "/ecoline", label: "Eco Line" },
     { link: "/", label: "Флізелін" },
   ]
   return (
     <AppBar component="nav">
       <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          edge="start"
-          onClick={handleDrawerToggle}
-          sx={{ mr: 2, display: { md: "none" } }}
-        >
-          <MenuIcon />
-        </IconButton>
+        {!isEcoLine && (
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { md: "none" } }}
+          >
+            <MenuIcon />
+          </IconButton>
+        )}
 
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+        >
           {label}
         </Typography>
 
-        {navItems && (
+        {!isEcoLine && (
           <Stack
             direction="row"
             gap={1}
@@ -55,6 +67,15 @@ const HeaderToolbar = ({ handleDrawerToggle, navItems, label, isHomePage }) => {
                   </AnchorLink>
                 ))}
           </Stack>
+        )}
+        {!isHomePage && (
+          <Button
+            sx={{ ml: { xs: "auto", sm: 2 } }}
+            color="info"
+            variant="contained"
+          >
+            <Link to="/">Головна</Link>
+          </Button>
         )}
       </Toolbar>
     </AppBar>

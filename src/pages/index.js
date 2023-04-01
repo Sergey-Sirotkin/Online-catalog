@@ -7,7 +7,7 @@ import HomePage from "../components/homePage"
 
 const IndexPage = ({ data }) => {
   return (
-    <Layout label="Електронний Каталог" isHomePage>
+    <Layout label="Електронні Каталоги" isHomePage>
       <HomePage data={data} />
     </Layout>
   )

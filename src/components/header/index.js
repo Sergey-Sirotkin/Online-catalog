@@ -6,7 +6,7 @@ import HeaderDrawer from "../headerDrawer"
 import HeaderToolbar from "./components/HeaderToolbar"
 
 const Header = props => {
-  const { window, label, isHomePage } = props
+  const { window, label, isHomePage, isEcoLine } = props
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const handleDrawerToggle = useCallback(() => {
@@ -31,9 +31,10 @@ const Header = props => {
         navItems={navItems}
         label={label}
         isHomePage={isHomePage}
+        isEcoLine={isEcoLine}
       />
 
-      {navItems && (
+      {!isEcoLine && (
         <Box component="nav">
           <Drawer
             container={container}
