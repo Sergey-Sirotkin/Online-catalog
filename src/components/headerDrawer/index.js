@@ -24,7 +24,7 @@ const HeaderDrawer = ({ handleDrawerToggle, navItems, isHomePage }) => {
   return (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        Слобожанские
+        Електронний Каталог
       </Typography>
 
       <List>
