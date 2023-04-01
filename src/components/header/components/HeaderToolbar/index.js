@@ -37,23 +37,25 @@ const HeaderToolbar = ({ handleDrawerToggle, navItems, label, isHomePage }) => {
           {label}
         </Typography>
 
-        <Stack
-          direction="row"
-          gap={1}
-          sx={{ display: { xs: "none", md: "flex" } }}
-        >
-          {isHomePage
-            ? homeNavItems.map(({ link, label }, index) => (
-                <Link key={index} to={link}>
-                  <Button sx={{ color: "#fff" }}>{label}</Button>
-                </Link>
-              ))
-            : navItems.map(({ label, id }) => (
-                <AnchorLink key={id} to={`#${id}`}>
-                  <Button sx={{ color: "#fff" }}>{label}</Button>
-                </AnchorLink>
-              ))}
-        </Stack>
+        {navItems && (
+          <Stack
+            direction="row"
+            gap={1}
+            sx={{ display: { xs: "none", md: "flex" } }}
+          >
+            {isHomePage
+              ? homeNavItems.map(({ link, label }, index) => (
+                  <Link key={index} to={link}>
+                    <Button sx={{ color: "#fff" }}>{label}</Button>
+                  </Link>
+                ))
+              : navItems.map(({ label, id }) => (
+                  <AnchorLink key={id} to={`#${id}`}>
+                    <Button sx={{ color: "#fff" }}>{label}</Button>
+                  </AnchorLink>
+                ))}
+          </Stack>
+        )}
       </Toolbar>
     </AppBar>
   )

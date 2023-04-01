@@ -33,30 +33,32 @@ const Header = props => {
         isHomePage={isHomePage}
       />
 
-      <Box component="nav">
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true,
-          }}
-          sx={{
-            display: { xs: "block", md: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: "80%",
-            },
-          }}
-        >
-          <HeaderDrawer
-            handleDrawerToggle={handleDrawerToggle}
-            navItems={navItems}
-            isHomePage={isHomePage}
-          />
-        </Drawer>
-      </Box>
+      {navItems && (
+        <Box component="nav">
+          <Drawer
+            container={container}
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{
+              keepMounted: true,
+            }}
+            sx={{
+              display: { xs: "block", md: "none" },
+              "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
+                width: "80%",
+              },
+            }}
+          >
+            <HeaderDrawer
+              handleDrawerToggle={handleDrawerToggle}
+              navItems={navItems}
+              isHomePage={isHomePage}
+            />
+          </Drawer>
+        </Box>
+      )}
 
       <Toolbar />
     </>

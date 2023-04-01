@@ -1,24 +1,10 @@
 import React from "react"
 
-import {
-  Box,
-  Button,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  Grid,
-  Typography,
-  Stack,
-} from "@mui/material"
-import { GatsbyImage, StaticImage, getImage } from "gatsby-plugin-image"
-
-import { Link } from "gatsby"
+import { Grid, Typography } from "@mui/material"
+import CardItem from "./components/CardItem"
 
 const HomePage = ({ data }) => {
   const { catalogues } = data.home.frontmatter
-
-  console.log(catalogues)
 
   return (
     <>
@@ -30,40 +16,11 @@ const HomePage = ({ data }) => {
       >
         Оберіть каталог
       </Typography>
-      <Grid mt={1} container spacing={3}>
-        {catalogues.map(({ label, description, link, image }, index) => (
-          <Grid item xs={12} sm={6} lg={4} key={index}>
-            <Card sx={{ height: "100%" }}>
-              <Stack sx={{ height: "100%" }} justifyContent="space-between">
-                <CardActionArea>
-                  <Link to={link}>
-                    <CardContent sx={{ p: 0 }}>
-                      <GatsbyImage image={getImage(image)} alt={label} />
 
-                      <Box sx={{ pl: 1, pr: 1, pb: 1 }}>
-                        <Typography
-                          sx={{ fontSize: { xs: "21px", md: "24px" } }}
-                          mt={2}
-                          gutterBottom
-                          variant="h5"
-                          component="div"
-                        >
-                          {label}
-                        </Typography>
-                        <Typography color="text.secondary">
-                          {description}
-                        </Typography>
-                      </Box>
-                    </CardContent>
-                  </Link>
-                </CardActionArea>
-                <CardActions>
-                  <Button size="small" color="primary">
-                    <Link to={link}>Перейти</Link>
-                  </Button>
-                </CardActions>
-              </Stack>
-            </Card>
+      <Grid mt={1} container spacing={3}>
+        {catalogues.map((props, index) => (
+          <Grid item xs={12} sm={6} lg={4} key={index}>
+            <CardItem {...props} key={index} />
           </Grid>
         ))}
       </Grid>
