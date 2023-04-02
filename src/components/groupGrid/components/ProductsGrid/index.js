@@ -13,7 +13,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import ProductFeatures from "../ProductFeatures"
 
-const ProductsGrid = ({ productCards, handleOpen }) => {
+const ProductsGrid = ({ productCards, handleOpen, isSlob }) => {
   const [opacity, setOpacity] = useState(1)
   const [border, setBorder] = useState(null)
   const [currentCompanion, setCurrentCompanion] = useState(null)
@@ -78,6 +78,7 @@ const ProductsGrid = ({ productCards, handleOpen }) => {
                 <ProductFeatures
                   features={features}
                   handleOpacityChange={handleOpacityChange}
+                  isSlob={isSlob}
                 />
               </CardContent>
             </Card>

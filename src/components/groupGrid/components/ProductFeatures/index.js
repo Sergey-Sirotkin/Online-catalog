@@ -2,19 +2,17 @@ import React from "react"
 import { Divider, Typography, Stack, Box, Link } from "@mui/material"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 
-const ProductFeatures = ({ features, handleOpacityChange }) => {
+const ProductFeatures = ({ features, handleOpacityChange, isSlob }) => {
   const { color, type, group, availability, companion } = features[0]
 
-  const { companionItem } = companion[0]
-
-  const handleAnchorLinkClick = () => {
+  const handleAnchorLinkClick = companionItem => {
     handleOpacityChange(companionItem)
   }
 
   const ordinaryItems = [
     { label: "Колір:", value: color },
     { label: "Тип малюнка:", value: type },
-    { label: "Група:", value: group },
+    { label: isSlob ? "Група:" : "Колекція:", value: group },
   ]
 
   return (
@@ -29,20 +27,26 @@ const ProductFeatures = ({ features, handleOpacityChange }) => {
         </Stack>
       ))}
 
-      {companionItem ? (
-        <Stack direction="row" gap={1} alignItems="center">
+      {companion ? (
+        <Stack direction="row" gap={1} alignItems="center" flexWrap="wrap">
           <Typography fontSize="18px" fontWeight="bold">
             Компаньйон:
           </Typography>
 
-          <AnchorLink
-            to={`#id${companionItem}`}
-            onAnchorLinkClick={handleAnchorLinkClick}
-          >
-            <Link component="div" underline="always">
-              <Typography fontSize="18px">{companionItem}</Typography>
-            </Link>
-          </AnchorLink>
+          {companion.map(({ companionItem }, index) => (
+            <AnchorLink
+              key={index}
+              to={`#id${companionItem}`}
+              onAnchorLinkClick={() => handleAnchorLinkClick(companionItem)}
+            >
+              <Link component="div" underline="always">
+                <Typography fontSize="18px">
+                  {companionItem}
+                  {index < companion.length - 1 && ","}
+                </Typography>
+              </Link>
+            </AnchorLink>
+          ))}
         </Stack>
       ) : (
         <Box height="30px" />

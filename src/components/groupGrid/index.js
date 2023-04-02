@@ -5,7 +5,7 @@ import { Stack, Chip } from "@mui/material"
 import ProductDialog from "./components/ProductDialog"
 import ProductsGrid from "./components/ProductsGrid"
 
-const GroupGrid = ({ productCards, groupTitle, groupName }) => {
+const GroupGrid = ({ productCards, groupTitle, groupName, isSlob }) => {
   const [lightboxImage, setLightboxImage] = useState(null)
 
   const handleOpen = useCallback(({ productImage, itemNumber }) => {
@@ -37,7 +37,7 @@ const GroupGrid = ({ productCards, groupTitle, groupName }) => {
         />
       </Stack>
 
-      <ProductsGrid productCards={productCards} handleOpen={handleOpen} />
+      <ProductsGrid productCards={productCards} handleOpen={handleOpen} isSlob={isSlob} />
 
       {lightboxImage && (
         <ProductDialog

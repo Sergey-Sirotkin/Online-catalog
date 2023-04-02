@@ -25,6 +25,7 @@ const SlobozhanskiePage = ({ data }) => {
             productCards={productCards}
             groupTitle={groupTitle}
             groupName={groupName}
+            isSlob
           />
         )
       })}
