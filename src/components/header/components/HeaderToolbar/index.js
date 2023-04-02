@@ -62,7 +62,7 @@ const HeaderToolbar = ({
                   </Link>
                 ))
               : navItems.map(({ label, id }) => (
-                  <AnchorLink key={id} to={`#${id}`}>
+                  <AnchorLink stripHash key={id} to={`#${id}`}>
                     <Button sx={{ color: "#fff" }}>{label}</Button>
                   </AnchorLink>
                 ))}

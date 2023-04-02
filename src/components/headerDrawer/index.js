@@ -45,7 +45,7 @@ const HeaderDrawer = ({ handleDrawerToggle, navItems, isHomePage }) => {
             ))
           : navItems.map(({ label, id }) => (
               <Stack key={id}>
-                <AnchorLink to={`#${id}`}>
+                <AnchorLink stripHash to={`#${id}`}>
                   <ListItem disablePadding>
                     <ListItemButton sx={{ textAlign: "center" }}>
                       <ListItemText primary={label} />
