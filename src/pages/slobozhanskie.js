@@ -15,7 +15,7 @@ const SlobozhanskiePage = ({ data }) => {
   ]
 
   return (
-    <Layout label="Слобожанские - каталог">
+    <Layout label="Слобожанские - каталог" isSlob="true">
       {groups.map(group => {
         const { groupName, productCards, groupTitle } = group.frontmatter
 

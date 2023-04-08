@@ -20,12 +20,15 @@ const HeaderToolbar = ({
   label,
   isHomePage,
   isEcoLine,
+  isSlob,
 }) => {
   const homeNavItems = [
     { link: "/slobozhanskie", label: "Слобожанские" },
     { link: "/ecoline", label: "Eco Line" },
     { link: "/", label: "Флізелін" },
   ]
+
+  console.log(isSlob)
   return (
     <AppBar component="nav">
       <Toolbar>
@@ -61,7 +64,13 @@ const HeaderToolbar = ({
                     <Button sx={{ color: "#fff" }}>{label}</Button>
                   </Link>
                 ))
-              : navItems.map(({ label, id }) => (
+              : isSlob
+              ? navItems.slob.map(({ label, id }) => (
+                  <AnchorLink stripHash key={id} to={`#${id}`}>
+                    <Button sx={{ color: "#fff" }}>{label}</Button>
+                  </AnchorLink>
+                ))
+              : navItems.fliz.map(({ label, id }) => (
                   <AnchorLink stripHash key={id} to={`#${id}`}>
                     <Button sx={{ color: "#fff" }}>{label}</Button>
                   </AnchorLink>

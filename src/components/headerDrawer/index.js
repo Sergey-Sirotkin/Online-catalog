@@ -15,7 +15,7 @@ import {
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { Link } from "gatsby"
 
-const HeaderDrawer = ({ handleDrawerToggle, navItems, isHomePage }) => {
+const HeaderDrawer = ({ handleDrawerToggle, navItems, isHomePage, isSlob }) => {
   const homeNavItems = [
     { link: "/slobozhanskie", label: "Слобожанские" },
     { link: "/ecoline", label: "Eco Line" },
@@ -43,7 +43,20 @@ const HeaderDrawer = ({ handleDrawerToggle, navItems, isHomePage }) => {
                 </Link>
               </Stack>
             ))
-          : navItems.map(({ label, id }) => (
+          : isSlob
+          ? navItems.slob.map(({ label, id }) => (
+              <Stack key={id}>
+                <AnchorLink stripHash to={`#${id}`}>
+                  <ListItem disablePadding>
+                    <ListItemButton sx={{ textAlign: "center" }}>
+                      <ListItemText primary={label} />
+                    </ListItemButton>
+                  </ListItem>
+                  <Divider />
+                </AnchorLink>
+              </Stack>
+            ))
+          : navItems.fliz.map(({ label, id }) => (
               <Stack key={id}>
                 <AnchorLink stripHash to={`#${id}`}>
                   <ListItem disablePadding>
