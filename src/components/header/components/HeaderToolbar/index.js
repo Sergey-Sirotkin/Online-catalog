@@ -25,10 +25,9 @@ const HeaderToolbar = ({
   const homeNavItems = [
     { link: "/slobozhanskie", label: "Слобожанские" },
     { link: "/ecoline", label: "Eco Line" },
-    { link: "/", label: "Флізелін" },
+    { link: "/fliz", label: "Флізелін" },
   ]
 
-  console.log(isSlob)
   return (
     <AppBar component="nav">
       <Toolbar>

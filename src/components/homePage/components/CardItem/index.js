@@ -13,6 +13,16 @@ import {
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
+import { styled } from "@mui/system"
+
+const ImageWrapper = styled(Box)({
+  transition: "opacity 0.3s ease",
+
+  "&:hover": {
+    opacity: 0.8,
+  },
+})
+
 const CardItem = ({ image, link, label, description }) => {
   return (
     <Card sx={{ height: "100%" }}>
@@ -20,7 +30,9 @@ const CardItem = ({ image, link, label, description }) => {
         <CardActionArea>
           <Link to={link}>
             <CardContent sx={{ p: 0 }}>
-              <GatsbyImage image={getImage(image)} alt={label} />
+              <ImageWrapper>
+                <GatsbyImage image={getImage(image)} alt={label} />
+              </ImageWrapper>
 
               <Box sx={{ pl: 1, pr: 1, pb: 1 }}>
                 <Typography
@@ -38,8 +50,8 @@ const CardItem = ({ image, link, label, description }) => {
           </Link>
         </CardActionArea>
 
-        <CardActions>
-          <Button size="small" color="primary">
+        <CardActions sx={{ mb: 1 }}>
+          <Button variant="outlined" size="small" color="primary">
             <Link to={link}>Перейти</Link>
           </Button>
         </CardActions>

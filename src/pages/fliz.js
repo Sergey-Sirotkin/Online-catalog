@@ -22,7 +22,6 @@ const Fliz = ({ data }) => {
           productCards={productCards}
           groupTitle={groupTitle}
           groupName={groupName}
-          isSlob
         />
       )
     })}

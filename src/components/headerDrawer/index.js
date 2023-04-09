@@ -19,7 +19,7 @@ const HeaderDrawer = ({ handleDrawerToggle, navItems, isHomePage, isSlob }) => {
   const homeNavItems = [
     { link: "/slobozhanskie", label: "Слобожанские" },
     { link: "/ecoline", label: "Eco Line" },
-    { link: "/", label: "Флізелін" },
+    { link: "/fliz", label: "Флізелін" },
   ]
 
   return (
