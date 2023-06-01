@@ -23,6 +23,7 @@ export const query = graphql`
           label
           description
           link
+          porulonkaLink
           image {
             childImageSharp {
               gatsbyImageData

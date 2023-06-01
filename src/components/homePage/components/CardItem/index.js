@@ -23,7 +23,7 @@ const ImageWrapper = styled(Box)({
   },
 })
 
-const CardItem = ({ image, link, label, description }) => {
+const CardItem = ({ image, link, porulonkaLink, label, description }) => {
   return (
     <Card sx={{ height: "100%" }}>
       <Stack sx={{ height: "100%" }} justifyContent="space-between">
@@ -50,10 +50,16 @@ const CardItem = ({ image, link, label, description }) => {
           </Link>
         </CardActionArea>
 
-        <CardActions sx={{ mb: 1 }}>
+        <CardActions sx={{ mb: 1, justifyContent: "space-between" }}>
           <Button variant="outlined" size="small" color="primary">
-            <Link to={link}>Перейти</Link>
+            <Link to={link}>Каталог</Link>
           </Button>
+
+          {porulonkaLink && (
+            <Button variant="outlined" size="small" color="primary">
+              <Link to={porulonkaLink}>Порулонка</Link>
+            </Button>
+          )}
         </CardActions>
       </Stack>
     </Card>
