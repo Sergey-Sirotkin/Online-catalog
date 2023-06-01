@@ -20,7 +20,7 @@ const ProductFeatures = ({ features, handleOpacityChange, isSlob }) => {
       {companion ? (
         <Stack direction="row" gap={1} alignItems="center" flexWrap="wrap">
           <Typography fontSize="18px" fontWeight="bold">
-            ПартіЇ:
+            Партії:
           </Typography>
 
           {companion.map(({ companionItem }, index) => (
