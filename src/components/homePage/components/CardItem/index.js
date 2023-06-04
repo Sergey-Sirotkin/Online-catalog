@@ -55,11 +55,11 @@ const CardItem = ({ image, link, porulonkaLink, label, description }) => {
             <Link to={link}>Каталог</Link>
           </Button>
 
-          {porulonkaLink && (
+          {/* {porulonkaLink && (
             <Button variant="outlined" size="small" color="primary">
               <Link to={porulonkaLink}>Порулонка</Link>
             </Button>
-          )}
+          )}*/}
         </CardActions>
       </Stack>
     </Card>
