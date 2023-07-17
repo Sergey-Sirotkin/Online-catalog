@@ -3,6 +3,7 @@ import React, { useCallback, useState } from "react"
 import {
   Card,
   CardContent,
+  Chip,
   Divider,
   Grid,
   Stack,
@@ -13,7 +14,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import ProductFeatures from "../ProductFeatures"
 
-const ProductsGrid = ({ productCards, handleOpen, isSlob }) => {
+const ProductsGrid = ({ productCards, handleOpen }) => {
   const [opacity, setOpacity] = useState(1)
   const [border, setBorder] = useState(null)
   const [currentCompanion, setCurrentCompanion] = useState(null)
@@ -31,7 +32,7 @@ const ProductsGrid = ({ productCards, handleOpen, isSlob }) => {
 
   return (
     <Grid container spacing={3}>
-      {productCards.map(({ image, itemNumber, features }) => {
+      {productCards.map(({ image, itemNumber, features, promo }) => {
         const productImage = getImage(image)
 
         return (
@@ -69,16 +70,30 @@ const ProductsGrid = ({ productCards, handleOpen, isSlob }) => {
                   },
                 }}
               >
-                <Typography fontWeight="bold" gutterBottom variant="h6">
-                  Артикул: {itemNumber}
-                </Typography>
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  mb={2}
+                >
+                  <Typography fontWeight="bold" variant="h6">
+                    Артикул: {itemNumber}
+                  </Typography>
+
+                  {promo && (
+                    <Chip
+                      sx={{ fontWeight: 700, fontSize: 16 }}
+                      label="АКЦІЯ ЛИПНЯ -10%"
+                      color="error"
+                    />
+                  )}
+                </Stack>
 
                 <Divider sx={{ mb: 1 }} />
 
                 <ProductFeatures
                   features={features}
                   handleOpacityChange={handleOpacityChange}
-                  isSlob={isSlob}
                 />
               </CardContent>
             </Card>

@@ -48,6 +48,7 @@ export const query = graphql`
             }
           }
           itemNumber
+          promo
           features {
             color
             type
@@ -71,6 +72,7 @@ export const query = graphql`
             }
           }
           itemNumber
+          promo
           features {
             color
             type
@@ -94,6 +96,7 @@ export const query = graphql`
             }
           }
           itemNumber
+          promo
           features {
             color
             type
