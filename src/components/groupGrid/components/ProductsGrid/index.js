@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react"
 
 import {
+  Box,
   Card,
   CardContent,
   Chip,
@@ -49,6 +50,7 @@ const ProductsGrid = ({ productCards, handleOpen }) => {
               <Stack
                 alignItems="center"
                 sx={{
+                  position: "relative",
                   opacity: currentCompanion === itemNumber && opacity,
                   border: currentCompanion === itemNumber && border,
                   cursor: "pointer",
@@ -60,6 +62,57 @@ const ProductsGrid = ({ productCards, handleOpen }) => {
                 onClick={() => handleOpen({ productImage, itemNumber })}
               >
                 <GatsbyImage image={productImage} alt={itemNumber} />
+                {promo && (
+                  <Box
+                    sx={{
+                      backgroundColor: "#d32f2f",
+                      position: "absolute",
+                      bottom: 0,
+                      width: "100%",
+                      p: "5px",
+                    }}
+                  >
+                    <Stack alignItems="center">
+                      <Stack
+                        direction="row"
+                        gap={1.5}
+                        alignItems="center"
+                        justifyContent="center"
+                        mb={0.5}
+                      >
+                        <Typography
+                          fontWeight={700}
+                          textAlign="center"
+                          color="#fff"
+                          fontSize={18}
+                        >
+                          АКЦІЯ ЛИПНЯ
+                        </Typography>
+
+                        <Chip
+                          label="-10%"
+                          sx={{
+                            color: "#d32f2f",
+                            fontWeight: 700,
+                            fontSize: "18px",
+                            backgroundColor: '#fff'
+                          }}
+                        />
+                      </Stack>
+
+                      <Divider sx={{ width: "80%", borderColor: "#fff" }} />
+
+                      <Typography
+                        fontSize={18}
+                        fontWeight={700}
+                        textAlign="center"
+                        color="#fff"
+                      >
+                        продовжена до 15/08/23
+                      </Typography>
+                    </Stack>
+                  </Box>
+                )}
               </Stack>
 
               <CardContent
@@ -80,18 +133,40 @@ const ProductsGrid = ({ productCards, handleOpen }) => {
                     Артикул: {itemNumber}
                   </Typography>
 
-                  {promo && (
+                  {/* {promo && (
                     <Chip
-                      sx={{ fontWeight: 700, fontSize: 16 }}
-                      label="АКЦІЯ ЛИПНЯ -10%"
+                      sx={{
+                        height: "auto",
+                        p: "5px 0",
+                      }}
+                      label={
+                        <Stack alignItems="center">
+                          <Typography fontWeight={700} textAlign="center">
+                            АКЦІЯ ЛИПНЯ &nbsp; -10%
+                          </Typography>
+
+                          <Divider
+                            sx={{ width: "100%", borderColor: "#fff" }}
+                          />
+
+                          <Typography fontWeight={700} textAlign="center">
+                            продовжена до
+                          </Typography>
+
+                          <Typography fontWeight={700} textAlign="center">
+                            15/08/23
+                          </Typography>
+                        </Stack>
+                      }
                       color="error"
                     />
-                  )}
+                  )} */}
                 </Stack>
 
                 <Divider sx={{ mb: 1 }} />
 
                 <ProductFeatures
+                  promo={promo}
                   features={features}
                   handleOpacityChange={handleOpacityChange}
                 />

@@ -4,6 +4,7 @@ import GroupGrid from "../components/groupGrid"
 
 import Seo from "../components/seo"
 import Layout from "../components/layout"
+import { Alert, Typography } from "@mui/material"
 
 const SlobozhanskiePage = ({ data }) => {
   const groups = [
@@ -16,6 +17,21 @@ const SlobozhanskiePage = ({ data }) => {
 
   return (
     <Layout label="Слобожанские - каталог" isSlob="true">
+      <Alert
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+        icon={false}
+        variant="filled"
+        severity="error"
+      >
+        <Typography textAlign="center" variant="h4">
+          Акцію липня продовжено до 15/08/23 !
+        </Typography>
+      </Alert>
+
       {groups.map(group => {
         const { groupName, productCards, groupTitle } = group.frontmatter
 
