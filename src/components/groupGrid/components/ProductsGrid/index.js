@@ -86,10 +86,10 @@ const ProductsGrid = ({ productCards, handleOpen }) => {
                           color="#fff"
                           fontSize={18}
                         >
-                          АКЦІЯ ЛИПНЯ
+                         Групу переглянуто !
                         </Typography>
 
-                        <Chip
+                        {/* <Chip
                           label="-10%"
                           sx={{
                             color: "#d32f2f",
@@ -97,10 +97,10 @@ const ProductsGrid = ({ productCards, handleOpen }) => {
                             fontSize: "18px",
                             backgroundColor: '#fff'
                           }}
-                        />
+                        /> */}
                       </Stack>
 
-                      <Divider sx={{ width: "80%", borderColor: "#fff" }} />
+                      {/* <Divider sx={{ width: "80%", borderColor: "#fff" }} />
 
                       <Typography
                         fontSize={18}
@@ -109,7 +109,7 @@ const ProductsGrid = ({ productCards, handleOpen }) => {
                         color="#fff"
                       >
                         продовжена до 15/08/23
-                      </Typography>
+                      </Typography> */}
                     </Stack>
                   </Box>
                 )}

@@ -28,7 +28,7 @@ const SlobozhanskiePage = ({ data }) => {
         severity="error"
       >
         <Typography textAlign="center" variant="h4">
-          Акцію липня продовжено до 15/08/23 !
+          Групу С та Акцію-1 переглянуто !
         </Typography>
       </Alert>
 
@@ -136,6 +136,7 @@ export const query = graphql`
             }
           }
           itemNumber
+          promo
           features {
             color
             type
