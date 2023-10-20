@@ -1,4 +1,4 @@
-import { Button, Dialog, Stack, Typography } from "@mui/material"
+import { Box, Button, Dialog, Stack, Typography } from "@mui/material"
 import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 
@@ -14,10 +14,12 @@ const ProductDialog = ({ lightboxImage, handleClose }) => {
         },
       }}
     >
-      <GatsbyImage
-        image={lightboxImage.productImage}
-        alt={lightboxImage.itemNumber}
-      />
+      <Box maxWidth="745px">
+        <GatsbyImage
+          image={lightboxImage.productImage}
+          alt={lightboxImage.itemNumber}
+        />
+      </Box>
 
       <Stack
         direction="row"

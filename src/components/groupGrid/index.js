@@ -8,8 +8,8 @@ import ProductsGrid from "./components/ProductsGrid"
 const GroupGrid = ({ productCards, groupTitle, groupName, isSlob }) => {
   const [lightboxImage, setLightboxImage] = useState(null)
 
-  const handleOpen = useCallback(({ productImage, itemNumber }) => {
-    setLightboxImage({ productImage, itemNumber })
+  const handleOpen = useCallback(({ image, itemNumber }) => {
+    setLightboxImage({ productImage: image, itemNumber })
   }, [])
 
   const handleClose = useCallback(() => {
@@ -37,7 +37,11 @@ const GroupGrid = ({ productCards, groupTitle, groupName, isSlob }) => {
         />
       </Stack>
 
-      <ProductsGrid productCards={productCards} handleOpen={handleOpen} isSlob={isSlob} />
+      <ProductsGrid
+        productCards={productCards}
+        handleOpen={handleOpen}
+        isSlob={isSlob}
+      />
 
       {lightboxImage && (
         <ProductDialog

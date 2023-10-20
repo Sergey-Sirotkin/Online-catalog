@@ -64,6 +64,12 @@ export const query = graphql`
             }
           }
           itemNumber
+          promoChip
+          additionalImage {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
           promo
           features {
             color
@@ -88,6 +94,12 @@ export const query = graphql`
             }
           }
           itemNumber
+          promoChip
+          additionalImage {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
           promo
           features {
             color
@@ -112,6 +124,12 @@ export const query = graphql`
             }
           }
           itemNumber
+          promoChip
+          additionalImage {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
           promo
           features {
             color
@@ -136,6 +154,12 @@ export const query = graphql`
             }
           }
           itemNumber
+          promoChip
+          additionalImage {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
           promo
           features {
             color
@@ -160,6 +184,12 @@ export const query = graphql`
             }
           }
           itemNumber
+          promoChip
+          additionalImage {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
           features {
             color
             type
