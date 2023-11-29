@@ -24,7 +24,7 @@ const Header = props => {
     fliz: [
       { id: "villaVanilla", label: "Villa Vanilla" },
       { id: "elegantHome", label: "Elegant Home" },
-      { id: "paintable", label: "Малярний Флізелін" },
+      // { id: "paintable", label: "Малярний Флізелін" },
     ],
   }
 

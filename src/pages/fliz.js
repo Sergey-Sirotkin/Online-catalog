@@ -8,8 +8,8 @@ import Layout from "../components/layout"
 const Fliz = ({ data }) => {
   const groups = [
     data.villaVanilla,
-    data.elegantHome,
-    data.paintable,
+    data.elegantHome
+    // data.paintable,
   ]
   return (
     <Layout label="Флізелін - каталог">
@@ -79,29 +79,29 @@ export const query = graphql`
         }
       }
     }
-    paintable: mdx(frontmatter: { groupName: { eq: "paintable" } }) {
-      frontmatter {
-        groupName
-        groupTitle
-        productCards {
-          image {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          itemNumber
-          features {
-            color
-            type
-            group
-            companion {
-              companionItem
-            }
-            availability
-          }
-        }
-      }
-    }
+    # paintable: mdx(frontmatter: { groupName: { eq: "paintable" } }) {
+    #   frontmatter {
+    #     groupName
+    #     groupTitle
+    #     productCards {
+    #       image {
+    #         childImageSharp {
+    #           gatsbyImageData
+    #         }
+    #       }
+    #       itemNumber
+    #       features {
+    #         color
+    #         type
+    #         group
+    #         companion {
+    #           companionItem
+    #         }
+    #         availability
+    #       }
+    #     }
+    #   }
+    # }
   }
 `
 
