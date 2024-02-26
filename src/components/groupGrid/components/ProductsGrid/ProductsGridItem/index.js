@@ -53,6 +53,8 @@ const ProductsGridItem = ({
     handleOpen({ image: mainImage, itemNumber })
   }, [mainImage, itemNumber, handleOpen])
 
+  const isNotAvailable = features[0].availability === "тимч. відсутні, 0"
+
   return (
     <Grid id={`id${itemNumber}`} item sm={12} md={6} lg={4} xl={3}>
       <Card sx={{ height: "100%" }}>
@@ -184,28 +186,29 @@ const ProductsGridItem = ({
               </Stack>
             )}
 
-            <Stack
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-              mb={2}
-            >
-              <Typography fontWeight="bold" variant="h6">
-                Артикул: {itemNumber}
-              </Typography>
+            <Box sx={{ opacity: isNotAvailable ? 0.4 : 1 }}>
+              <Stack
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+                mb={2}
+              >
+                <Typography fontWeight="bold" variant="h6">
+                  Артикул: {itemNumber}
+                </Typography>
 
-              {promoChip && (
-                <Chip
-                  label={promoChip}
-                  color="error"
-                  sx={{
-                    fontWeight: 700,
-                    fontSize: "18px",
-                  }}
-                />
-              )}
+                {promoChip && (
+                  <Chip
+                    label={promoChip}
+                    color="error"
+                    sx={{
+                      fontWeight: 700,
+                      fontSize: "18px",
+                    }}
+                  />
+                )}
 
-              {/* {promo && (
+                {/* {promo && (
                     <Chip
                       sx={{
                         height: "auto",
@@ -233,16 +236,17 @@ const ProductsGridItem = ({
                       color="error"
                     />
                   )} */}
-            </Stack>
+              </Stack>
 
-            <Divider sx={{ mb: 1 }} />
+              <Divider sx={{ mb: 1 }} />
 
-            <ProductFeatures
-              isSlob
-              promo={promo}
-              features={features}
-              handleOpacityChange={handleOpacityChange}
-            />
+              <ProductFeatures
+                isSlob
+                promo={promo}
+                features={features}
+                handleOpacityChange={handleOpacityChange}
+              />
+            </Box>
           </CardContent>
         </Stack>
       </Card>
