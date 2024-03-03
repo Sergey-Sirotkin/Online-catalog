@@ -17,7 +17,7 @@ const SlobozhanskiePage = ({ data }) => {
 
   return (
     <Layout label="Слобожанские - каталог" isSlob="true">
-      <Alert
+      {/* <Alert
         sx={{
           display: "flex",
           alignItems: "center",
@@ -30,7 +30,7 @@ const SlobozhanskiePage = ({ data }) => {
         <Typography textAlign="center" variant="h4">
           Групу С та Акцію-1 переглянуто !
         </Typography>
-      </Alert>
+      </Alert> */}
 
       {groups.map(group => {
         const { groupName, productCards, groupTitle } = group.frontmatter
