@@ -7,6 +7,8 @@ const ProductFeatures = ({ features, handleOpacityChange, isSlob }) => {
 
   const isAviablility = availability > 0
 
+  const isSoon = availability === "Незабаром на складі"
+
   const handleAnchorLinkClick = companionItem => {
     handleOpacityChange(companionItem)
   }
@@ -62,14 +64,22 @@ const ProductFeatures = ({ features, handleOpacityChange, isSlob }) => {
         alignItems="center"
         justifyContent="center"
       >
-        <Typography fontSize="18px" fontWeight="bold">
-          Наявність на складі:
-        </Typography>
+        {isSoon ? (
+          <Typography fontSize="18px" fontWeight="bold" color="#d32f2f">
+            Незабаром на складі !
+          </Typography>
+        ) : (
+          <>
+            <Typography fontSize="18px" fontWeight="bold">
+              Наявність на складі:
+            </Typography>
 
-        <Typography fontSize="18px">
-          {availability}
-          {isAviablility && " рул."}
-        </Typography>
+            <Typography fontSize="18px">
+              {availability}
+              {isAviablility && " рул."}
+            </Typography>
+          </>
+        )}
       </Stack>
     </>
   )
