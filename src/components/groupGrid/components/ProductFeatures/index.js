@@ -5,6 +5,8 @@ import { AnchorLink } from "gatsby-plugin-anchor-links"
 const ProductFeatures = ({ features, handleOpacityChange, isSlob }) => {
   const { color, type, group, availability, companion } = features[0]
 
+  const isAviablility = availability > 0
+
   const handleAnchorLinkClick = companionItem => {
     handleOpacityChange(companionItem)
   }
@@ -64,7 +66,10 @@ const ProductFeatures = ({ features, handleOpacityChange, isSlob }) => {
           Наявність на складі:
         </Typography>
 
-        <Typography fontSize="18px">{availability} рул.</Typography>
+        <Typography fontSize="18px">
+          {availability}
+          {isAviablility && " рул."}
+        </Typography>
       </Stack>
     </>
   )
