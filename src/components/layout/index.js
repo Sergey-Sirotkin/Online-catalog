@@ -13,7 +13,7 @@ const Layout = ({ children, label, isHomePage = false, isEcoLine, isSlob, noHome
 
       <Main>{children}</Main>
 
-      <Footer />
+      {!noHomeBtn && <Footer />}
     </Wrapper>
   )
 }

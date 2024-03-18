@@ -29,7 +29,7 @@ const Fliz = ({ data }) => {
   )
 }
 
-export const Head = () => <Seo />
+// export const Head = () => <Seo />
 
 export const query = graphql`
   query {
