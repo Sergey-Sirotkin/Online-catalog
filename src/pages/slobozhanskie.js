@@ -9,7 +9,6 @@ import { Alert, Typography } from "@mui/material"
 const SlobozhanskiePage = ({ data }) => {
   const groups = [
     data.groupA,
-    data.groupB,
     data.groupC,
     data.groupA1,
     data.groupA2,
@@ -83,36 +82,7 @@ export const query = graphql`
         }
       }
     }
-    groupB: mdx(frontmatter: { groupName: { eq: "B" } }) {
-      frontmatter {
-        groupName
-        groupTitle
-        productCards {
-          image {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          itemNumber
-          promoChip
-          additionalImage {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          promo
-          features {
-            color
-            type
-            group
-            companion {
-              companionItem
-            }
-            availability
-          }
-        }
-      }
-    }
+
     groupC: mdx(frontmatter: { groupName: { eq: "C" } }) {
       frontmatter {
         groupName

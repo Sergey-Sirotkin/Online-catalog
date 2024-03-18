@@ -16,7 +16,6 @@ const Header = props => {
   const navItems = {
     slob: [
       { id: "A", label: "Група - А" },
-      { id: "B", label: "Група - В" },
       { id: "C", label: "Група - С" },
       { id: "A1", label: "Акція - 1" },
       { id: "A2", label: "Акція - 2" },
