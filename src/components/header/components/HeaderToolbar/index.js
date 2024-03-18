@@ -21,6 +21,7 @@ const HeaderToolbar = ({
   isHomePage,
   isEcoLine,
   isSlob,
+  noHomeBtn,
 }) => {
   const homeNavItems = [
     { link: "/slobozhanskie", label: "Слобожанские" },
@@ -76,7 +77,7 @@ const HeaderToolbar = ({
                 ))}
           </Stack>
         )}
-        {!isHomePage && (
+        {noHomeBtn || !isHomePage && (
           <Button
             sx={{ ml: { xs: "auto", sm: 2 } }}
             color="info"

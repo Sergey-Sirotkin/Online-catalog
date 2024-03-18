@@ -6,7 +6,7 @@ import HeaderDrawer from "../headerDrawer"
 import HeaderToolbar from "./components/HeaderToolbar"
 
 const Header = props => {
-  const { window, label, isHomePage, isEcoLine, isSlob } = props
+  const { window, label, isHomePage, isEcoLine, isSlob, noHomeBtn } = props
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const handleDrawerToggle = useCallback(() => {
@@ -40,6 +40,7 @@ const Header = props => {
         isHomePage={isHomePage}
         isEcoLine={isEcoLine}
         isSlob={isSlob}
+        noHomeBtn={noHomeBtn}
       />
 
       {!isEcoLine && (
