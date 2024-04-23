@@ -27,7 +27,7 @@ const Footer = () => {
       <Stack gap={4} direction="row">
         <Link
           fontSize="17px"
-          href="tel:067-232-99-43"
+          href="tel:0672329943"
           underline="hover"
           style={{
             color: "#fff",
@@ -38,13 +38,13 @@ const Footer = () => {
 
         <Link
           fontSize="17px"
-          href="tel:096-576-19-65"
+          href="tel:0671629224"
           underline="hover"
           style={{
             color: "#fff",
           }}
         >
-          096-576-19-65
+          067-162-92-24
         </Link>
       </Stack>
     </Stack>

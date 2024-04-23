@@ -77,7 +77,7 @@ const ProductsGridItem = ({
             {promo && (
               <Box
                 sx={{
-                  backgroundColor: "#d32f2f",
+                  backgroundColor: "#0288d1",
                   position: "absolute",
                   bottom: 0,
                   width: "100%",
@@ -98,7 +98,7 @@ const ProductsGridItem = ({
                       color="#fff"
                       fontSize={18}
                     >
-                      Групу переглянуто !
+                      Вже на складі !
                     </Typography>
 
                     {/* <Chip
