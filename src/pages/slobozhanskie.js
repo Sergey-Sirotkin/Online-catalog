@@ -10,7 +10,7 @@ const SlobozhanskiePage = ({ data }) => {
   const groups = [
     data.groupA,
     data.groupC,
-    data.groupA1,
+    // data.groupA1,
     data.groupA2,
   ]
 
@@ -84,36 +84,6 @@ export const query = graphql`
     }
 
     groupC: mdx(frontmatter: { groupName: { eq: "C" } }) {
-      frontmatter {
-        groupName
-        groupTitle
-        productCards {
-          image {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          itemNumber
-          promoChip
-          additionalImage {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          promo
-          features {
-            color
-            type
-            group
-            companion {
-              companionItem
-            }
-            availability
-          }
-        }
-      }
-    }
-    groupA1: mdx(frontmatter: { groupName: { eq: "A1" } }) {
       frontmatter {
         groupName
         groupTitle

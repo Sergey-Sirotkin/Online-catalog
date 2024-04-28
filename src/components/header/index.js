@@ -17,7 +17,7 @@ const Header = props => {
     slob: [
       { id: "A", label: "Група - А" },
       { id: "C", label: "Група - С" },
-      { id: "A1", label: "Акція - 1" },
+      // { id: "A1", label: "Акція - 1" },
       { id: "A2", label: "Акція - 2" },
     ],
     fliz: [
