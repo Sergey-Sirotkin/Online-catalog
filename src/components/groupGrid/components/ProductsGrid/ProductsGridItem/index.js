@@ -53,7 +53,7 @@ const ProductsGridItem = ({
     handleOpen({ image: mainImage, itemNumber })
   }, [mainImage, itemNumber, handleOpen])
 
-  const isNotAvailable = features[0].availability === "тимч. відсутні, 0"
+  const isNotAvailable = features[0].availability === "тимч. відсутні"
 
   return (
     <Grid id={`id${itemNumber}`} item sm={12} md={6} lg={4} xl={3}>
