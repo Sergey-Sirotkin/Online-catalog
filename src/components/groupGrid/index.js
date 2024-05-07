@@ -26,15 +26,17 @@ const GroupGrid = ({ productCards, groupTitle, groupName, isSlob }) => {
           mt: 4,
         }}
       >
-        <Chip
-          sx={{
-            fontSize: { xs: "25px", md: "45px" },
-            padding: "35px",
-            borderRadius: "30px",
-          }}
-          label={groupTitle}
-          color="info"
-        />
+        {groupTitle !== "Група А" && (
+          <Chip
+            sx={{
+              fontSize: { xs: "25px", md: "45px" },
+              padding: "35px",
+              borderRadius: "30px",
+            }}
+            label={groupTitle}
+            color="info"
+          />
+        )}
       </Stack>
 
       <ProductsGrid

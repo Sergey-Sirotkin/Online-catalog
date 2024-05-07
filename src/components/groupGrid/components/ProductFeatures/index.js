@@ -16,20 +16,22 @@ const ProductFeatures = ({ features, handleOpacityChange, isSlob }) => {
   const ordinaryItems = [
     { label: "Колір:", value: color },
     { label: "Тип малюнка:", value: type },
-    { label: isSlob ? "Група:" : "Колекція:", value: group },
+    { label: isSlob ? null : "Колекція:", value: isSlob ? null : group },
   ]
 
   return (
     <>
-      {ordinaryItems.map(({ label, value }) => (
-        <Stack key={label} direction="row" gap={1} alignItems="center">
-          <Typography fontSize="18px" fontWeight="bold">
-            {label}
-          </Typography>
+      {ordinaryItems.map(({ label, value }) => {
+        return (
+          <Stack key={label} direction="row" gap={1} alignItems="center">
+            <Typography fontSize="18px" fontWeight="bold">
+              {label}
+            </Typography>
 
-          <Typography fontSize="18px">{value}</Typography>
-        </Stack>
-      ))}
+            <Typography fontSize="18px">{value}</Typography>
+          </Stack>
+        )
+      })}
 
       {companion ? (
         <Stack direction="row" gap={1} alignItems="center" flexWrap="wrap">

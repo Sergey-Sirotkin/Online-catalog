@@ -15,10 +15,10 @@ const Header = props => {
 
   const navItems = {
     slob: [
-      { id: "A", label: "Група - А" },
-      { id: "C", label: "Група - С" },
+      // { id: "A", label: "Група - А" },
+      // { id: "C", label: "Група - С" },
       // { id: "A1", label: "Акція - 1" },
-      { id: "A2", label: "Акція - 2" },
+      // { id: "A2", label: "Акція - 2" },
     ],
     fliz: [
       { id: "villaVanilla", label: "Villa Vanilla" },

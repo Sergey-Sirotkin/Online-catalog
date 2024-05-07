@@ -9,13 +9,13 @@ import { Alert, Typography } from "@mui/material"
 const SlobozhanskiePage = ({ data }) => {
   const groups = [
     data.groupA,
-    data.groupC,
+    // data.groupC,
     // data.groupA1,
     data.groupA2,
   ]
 
   return (
-    <Layout label="Слобожанские - каталог" isSlob="true">
+    <Layout label="Слобожанські - каталог" isSlob="true">
       {/* <Alert
         sx={{
           display: "flex",
@@ -53,37 +53,6 @@ export const Head = () => <Seo />
 export const query = graphql`
   query {
     groupA: mdx(frontmatter: { groupName: { eq: "A" } }) {
-      frontmatter {
-        groupName
-        groupTitle
-        productCards {
-          image {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          itemNumber
-          promoChip
-          additionalImage {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          promo
-          features {
-            color
-            type
-            group
-            companion {
-              companionItem
-            }
-            availability
-          }
-        }
-      }
-    }
-
-    groupC: mdx(frontmatter: { groupName: { eq: "C" } }) {
       frontmatter {
         groupName
         groupTitle
