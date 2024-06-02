@@ -2,7 +2,7 @@ import React from "react"
 import { Divider, Typography, Stack, Box, Link } from "@mui/material"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 
-const ProductFeatures = ({ features, handleOpacityChange, isSlob }) => {
+const ProductFeatures = ({ features, handleOpacityChange, isSlob, is16m }) => {
   const { color, type, group, availability, companion } = features[0]
 
   const isAviablility = availability > 0
@@ -32,6 +32,30 @@ const ProductFeatures = ({ features, handleOpacityChange, isSlob }) => {
           </Stack>
         )
       })}
+
+      {is16m && (
+        <>
+          <Stack direction="row" gap={1} alignItems="center">
+            <Typography fontSize="18px" fontWeight="bold">
+              Довжина:
+            </Typography>
+
+            <Typography fontSize="18px" color="#1976d2" fontWeight="bold">
+              16 метрів
+            </Typography>
+          </Stack>
+
+          <Stack direction="row" gap={1} alignItems="center">
+            <Typography fontSize="18px" fontWeight="bold">
+              Рулонів в ящику:
+            </Typography>
+
+            <Typography fontSize="18px" fontWeight="bold" color="#1976d2">
+              9 рул.
+            </Typography>
+          </Stack>
+        </>
+      )}
 
       {companion ? (
         <Stack direction="row" gap={1} alignItems="center" flexWrap="wrap">

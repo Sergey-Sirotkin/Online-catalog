@@ -29,6 +29,7 @@ const ProductsGridItem = ({
 
   const productImage = getImage(image)
   const additionalProductImage = getImage(additionalImage)
+  const is16m = itemNumber === "477-02"
 
   useEffect(() => {
     setMainImage(productImage)
@@ -242,6 +243,7 @@ const ProductsGridItem = ({
 
               <ProductFeatures
                 isSlob
+                is16m={is16m}
                 promo={promo}
                 features={features}
                 handleOpacityChange={handleOpacityChange}

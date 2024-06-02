@@ -11,6 +11,7 @@ const SlobozhanskiePage = ({ data }) => {
     data.groupA,
     // data.groupC,
     // data.groupA1,
+    data.sixteen,
     data.groupA2,
   ]
 
@@ -53,6 +54,36 @@ export const Head = () => <Seo />
 export const query = graphql`
   query {
     groupA: mdx(frontmatter: { groupName: { eq: "A" } }) {
+      frontmatter {
+        groupName
+        groupTitle
+        productCards {
+          image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+          itemNumber
+          promoChip
+          additionalImage {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+          promo
+          features {
+            color
+            type
+            group
+            companion {
+              companionItem
+            }
+            availability
+          }
+        }
+      }
+    }
+    sixteen: mdx(frontmatter: { groupName: { eq: "16m" } }) {
       frontmatter {
         groupName
         groupTitle
