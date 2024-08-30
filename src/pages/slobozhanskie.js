@@ -12,7 +12,7 @@ const SlobozhanskiePage = ({ data }) => {
     // data.groupC,
     // data.groupA1,
     data.sixteen,
-    data.groupA2,
+    // data.groupA2,
   ]
 
   return (
@@ -101,35 +101,6 @@ export const query = graphql`
             }
           }
           promo
-          features {
-            color
-            type
-            group
-            companion {
-              companionItem
-            }
-            availability
-          }
-        }
-      }
-    }
-    groupA2: mdx(frontmatter: { groupName: { eq: "A2" } }) {
-      frontmatter {
-        groupName
-        groupTitle
-        productCards {
-          image {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          itemNumber
-          promoChip
-          additionalImage {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
           features {
             color
             type
