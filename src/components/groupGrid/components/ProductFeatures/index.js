@@ -4,6 +4,7 @@ import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 const ProductFeatures = ({ features, handleOpacityChange, isSlob, is16m }) => {
   const { color, type, group, availability, companion } = features[0]
+  console.log("features", features[0])
 
   const isAviablility = availability > 0
 
@@ -13,10 +14,13 @@ const ProductFeatures = ({ features, handleOpacityChange, isSlob, is16m }) => {
     handleOpacityChange(companionItem)
   }
 
+  const isRozprodaj = group === "Розпродаж"
+
   const ordinaryItems = [
     { label: "Колір:", value: color },
     { label: "Тип малюнка:", value: type },
     { label: isSlob ? null : "Колекція:", value: isSlob ? null : group },
+    { label: !isRozprodaj ? null : "Група:", value: !isRozprodaj ? null : group },
   ]
 
   return (
