@@ -65,13 +65,11 @@ export const query = graphql`
             }
           }
           itemNumber
-          promoChip
           additionalImage {
             childImageSharp {
               gatsbyImageData
             }
           }
-          promo
           features {
             color
             type
@@ -95,7 +93,6 @@ export const query = graphql`
             }
           }
           itemNumber
-          promoChip
           additionalImage {
             childImageSharp {
               gatsbyImageData
@@ -124,13 +121,11 @@ export const query = graphql`
             }
           }
           itemNumber
-          promoChip
           additionalImage {
             childImageSharp {
               gatsbyImageData
             }
           }
-          promo
           features {
             color
             type
