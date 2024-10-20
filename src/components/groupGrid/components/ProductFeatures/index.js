@@ -14,13 +14,13 @@ const ProductFeatures = ({ features, handleOpacityChange, isSlob, is16m }) => {
     handleOpacityChange(companionItem)
   }
 
-  const isRozprodaj = group === "Розпродаж"
+  // const isRozprodaj = group === "Розпродаж"
 
   const ordinaryItems = [
     { label: "Колір:", value: color },
     { label: "Тип малюнка:", value: type },
     { label: isSlob ? null : "Колекція:", value: isSlob ? null : group },
-    { label: !isRozprodaj ? null : "Група:", value: !isRozprodaj ? null : group },
+    // { label: !isRozprodaj ? null : "Група:", value: !isRozprodaj ? null : group },
   ]
 
   return (

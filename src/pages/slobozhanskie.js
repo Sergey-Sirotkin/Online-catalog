@@ -13,7 +13,7 @@ const SlobozhanskiePage = ({ data }) => {
     // data.groupA1,
     data.sixteen,
     // data.groupA2,
-    data.rozprodaj,
+    // data.rozprodaj,
   ]
 
   return (
@@ -82,34 +82,34 @@ export const query = graphql`
         }
       }
     }
-    rozprodaj: mdx(frontmatter: { groupName: { eq: "rozprodaj" } }) {
-      frontmatter {
-        groupName
-        groupTitle
-        productCards {
-          image {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          itemNumber
-          additionalImage {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          features {
-            color
-            type
-            group
-            companion {
-              companionItem
-            }
-            availability
-          }
-        }
-      }
-    }
+    # rozprodaj: mdx(frontmatter: { groupName: { eq: "rozprodaj" } }) {
+    #   frontmatter {
+    #     groupName
+    #     groupTitle
+    #     productCards {
+    #       image {
+    #         childImageSharp {
+    #           gatsbyImageData
+    #         }
+    #       }
+    #       itemNumber
+    #       additionalImage {
+    #         childImageSharp {
+    #           gatsbyImageData
+    #         }
+    #       }
+    #       features {
+    #         color
+    #         type
+    #         group
+    #         companion {
+    #           companionItem
+    #         }
+    #         availability
+    #       }
+    #     }
+    #   }
+    # }
     sixteen: mdx(frontmatter: { groupName: { eq: "16m" } }) {
       frontmatter {
         groupName
