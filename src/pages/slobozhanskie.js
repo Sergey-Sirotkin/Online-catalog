@@ -65,11 +65,11 @@ export const query = graphql`
             }
           }
           itemNumber
-          additionalImage {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
+          # additionalImage {
+          #   childImageSharp {
+          #     gatsbyImageData
+          #   }
+          # }
           features {
             color
             type
@@ -121,11 +121,11 @@ export const query = graphql`
             }
           }
           itemNumber
-          additionalImage {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
+          # additionalImage {
+          #   childImageSharp {
+          #     gatsbyImageData
+          #   }
+          # }
           features {
             color
             type
